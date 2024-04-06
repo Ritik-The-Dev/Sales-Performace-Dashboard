@@ -1,4 +1,4 @@
-const LocalUrl = "http://localhost:4000";
+const LocalUrl = "https://sales-performace-dashboard.vercel.app";
 
 export const AuthUserApi = `${LocalUrl}/api/v1/auth/auth`;
 export const GetSalesData = `${LocalUrl}/api/v1/sales/GetSalesData`;
