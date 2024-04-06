@@ -21,7 +21,7 @@ Install the required packages
 
 Run the client code
 
-    npm start
+    npm run dev
 
 Server Installation
 
