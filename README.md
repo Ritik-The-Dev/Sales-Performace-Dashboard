@@ -2,6 +2,11 @@ Sales Performance Dashboard
 
 Sales Performance Dashboard to get the Performance Updates dynamically . The dashboard will show the sales performance using different Charts in an Interactive way
 
+chosen topic
+
+I have Choosen Sales performance as  Topic of My Project Because It Gives a Brief of Major all Domains Containing all Neccessary Information..
+I have Used PieCharts , Progress Charts Etc to Display the data as Much As Interact is Possible....
+
 Installation
 
 Clone the Repository
