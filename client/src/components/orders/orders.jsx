@@ -141,7 +141,7 @@ function Orders() {
               Order Status
             </label>
             <select
-              className="p-2 mb-2 border-2 border-black outline-none"
+              className="p-2 mb-2 border-2 text-black border-black outline-none"
               id="OrderStatus"
               value={NewOrderDetails.STATUS}
               onChange={(e) =>
@@ -159,7 +159,7 @@ function Orders() {
               Deal Size
             </label>
             <select
-              className="p-2 mb-2 border-2 border-black outline-none"
+              className="p-2 text-black mb-2 border-2 border-black outline-none"
               id="DealSize"
               value={NewOrderDetails.DEALSIZE}
               onChange={(e) =>
@@ -177,7 +177,7 @@ function Orders() {
               Product Line
             </label>
             <select
-              className="p-2 mb-5 border-2 border-black outline-none"
+              className="p-2 text-black mb-5 border-2 border-black outline-none"
               id="PRODUCTLINE"
               value={NewOrderDetails.PRODUCTLINE}
               onChange={(e) =>
@@ -227,7 +227,7 @@ function Orders() {
               </div>
             </div>
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="text"
               placeholder="CUSTOMERNAME"
               value={NewOrderDetails.CUSTOMERNAME}
@@ -239,7 +239,7 @@ function Orders() {
               }
             />
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="number"
               placeholder="PRICEEACH"
               value={NewOrderDetails.PRICEEACH}
@@ -251,7 +251,7 @@ function Orders() {
               }
             />{" "}
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="number"
               placeholder="MSRP"
               value={NewOrderDetails.MSRP}
@@ -263,7 +263,7 @@ function Orders() {
               }
             />{" "}
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="text"
               placeholder="PRODUCTCODE"
               value={NewOrderDetails.PRODUCTCODE}
@@ -275,7 +275,7 @@ function Orders() {
               }
             />
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="number"
               placeholder="PHONE"
               value={NewOrderDetails.PHONE}
@@ -287,7 +287,7 @@ function Orders() {
               }
             />
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="text"
               placeholder="ADDRESSLINE1"
               value={NewOrderDetails.ADDRESSLINE1}
@@ -299,7 +299,7 @@ function Orders() {
               }
             />
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="text"
               placeholder="CITY"
               value={NewOrderDetails.CITY}
@@ -308,7 +308,7 @@ function Orders() {
               }
             />
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="text"
               placeholder="STATE"
               value={NewOrderDetails.STATE}
@@ -320,7 +320,7 @@ function Orders() {
               }
             />
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="number"
               placeholder="POSTALCODE"
               value={NewOrderDetails.POSTALCODE}
@@ -332,7 +332,7 @@ function Orders() {
               }
             />
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="text"
               placeholder="COUNTRY"
               value={NewOrderDetails.COUNTRY}
@@ -344,7 +344,7 @@ function Orders() {
               }
             />
             <input
-              className="p-2 w-full mb-5 border-2  outline-none"
+              className="p-2 text-black w-full mb-5 border-2  outline-none"
               type="text"
               placeholder="TERRITORY"
               value={NewOrderDetails.TERRITORY}
