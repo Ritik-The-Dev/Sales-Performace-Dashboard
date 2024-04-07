@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil";
-import { salesData } from "../../Recoil/Data";
+import { DarkMode, salesData } from "../../Recoil/Data";
 import {Paginations} from '../dashboard/areaTable/AreaTable'
 import { useEffect, useState } from "react";
 
@@ -70,7 +70,7 @@ export default CustomerTables;
 export const Tables = ({ orders }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const ordersPerPage = 10;
-
+  const darkMode = useRecoilValue(DarkMode)
   const indexOfLastOrder = currentPage * ordersPerPage;
   const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
   const currentOrders = orders.slice(indexOfFirstOrder, indexOfLastOrder);
@@ -78,14 +78,14 @@ export const Tables = ({ orders }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <section className="bg-white rounded-md shadow-md lg:px-3 lg:py-4 md:px-3 md:py-4 px-3 py-3 ">
+    <section className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} rounded-md shadow-md lg:px-3 lg:py-4 md:px-3 md:py-4 px-3 py-3 `}>
       <div className="data-table-info">
-        <h4 className="text-2xl text-black mb-4">All Customers</h4>
+        <h4 className="text-2xl mb-4">All Customers</h4>
       </div>
       <div className="rounded-md border-2 overflow-x-auto">
-        <table className="min-w-[900px] w-full text-black">
+        <table className="min-w-[900px] w-full ">
           <thead className="text-left text-[1.2rem] bg-blue-100">
-            <tr>
+            <tr className="text-black">
               {TABLE_HEADS?.map((th, index) => (
                 <th className="text-center p-3 text-1xl" key={index}>
                   {th}

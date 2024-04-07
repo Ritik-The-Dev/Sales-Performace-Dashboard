@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { HiDotsHorizontal } from "react-icons/hi";
 import axios from "axios";
 import { getSalesData } from "../../../layout/BaseLayout";
-import { salesData } from "../../../Recoil/Data";
-import { useSetRecoilState } from "recoil";
+import { DarkMode, salesData } from "../../../Recoil/Data";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { MdOutlineAdd } from "react-icons/md";
 import { FaMinus } from "react-icons/fa6";
 import { DeleteOrderApi, EditOrderApi } from "../../../assets/Api/Api";
 
 const AreaTableAction = ({ orderDetails }) => {
+  const darkMode = useRecoilValue(DarkMode)
   const token = useState(localStorage.getItem("token"));
   const [showDropdown, setShowDropdown] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -127,7 +128,7 @@ const AreaTableAction = ({ orderDetails }) => {
       >
         <HiDotsHorizontal size={18} />
         {showDropdown && (
-          <div className="action-dropdown-menu bg-white absolute top-full right-1/2 transform translate-x-1/2 w-auto shadow-sm bg-secondary-color px-2 py-1 rounded-md border border-border-color-inverted text-left z-10">
+          <div className={`action-dropdown-menu ${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} absolute top-full right-1/2 transform translate-x-1/2 w-auto shadow-sm bg-secondary-color px-2 py-1 rounded-md border border-border-color-inverted text-left z-10`}>
             <ul className="dropdown-menu-list">
               <li className="dropdown-menu-item">
                 <div
@@ -151,7 +152,7 @@ const AreaTableAction = ({ orderDetails }) => {
       </button>
       {showAlert && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg">
+          <div className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} p-8 rounded-lg shadow-lg`}>
             <p className="text-lg mb-2">
               Are you sure you want to delete this order?
             </p>
@@ -177,10 +178,10 @@ const AreaTableAction = ({ orderDetails }) => {
       )}
      {showEditBox && (
   <div className="fixed inset-0 flex flex-col items-center justify-center z-30 bg-gray-400 bg-opacity-50">
-    <form className="bg-white lg:min-w-[40vw] md:min-w-[50vw] min-w-full flex flex-col p-8 rounded-lg shadow-lg">
+    <form className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} lg:min-w-[40vw] md:min-w-[50vw] min-w-full flex flex-col p-8 rounded-lg shadow-lg`}>
       <label className="text-2xl p-2" htmlFor="OrderStatus">Edit Order Details</label>
       <select
-      className="p-2 mb-5 border-2 border-black outline-none"
+      className="p-2 text-black mb-5 border-2 border-black outline-none"
         id="OrderStatus"
         value={EditOrderDetails.STATUS}
         onChange={(e) =>
@@ -223,7 +224,7 @@ const AreaTableAction = ({ orderDetails }) => {
         </div>
       </div>
       <input
-      className="p-2 w-full mb-5 border-2  outline-none"
+      className="p-2 text-black w-full mb-5 border-2  outline-none"
         type="text"
         placeholder="CUSTOMERNAME"
         value={EditOrderDetails.CUSTOMERNAME}
@@ -235,7 +236,7 @@ const AreaTableAction = ({ orderDetails }) => {
         }
       />
       <input
-      className="p-2 w-full mb-5 border-2  outline-none"
+      className="p-2 text-black w-full mb-5 border-2  outline-none"
         type="number"
         placeholder="PHONE"
         value={EditOrderDetails.PHONE}
@@ -247,7 +248,7 @@ const AreaTableAction = ({ orderDetails }) => {
         }
       />
       <input
-      className="p-2 w-full mb-5 border-2  outline-none"
+      className="p-2 text-black w-full mb-5 border-2  outline-none"
         type="text"
         placeholder="ADDRESSLINE1"
         value={EditOrderDetails.ADDRESSLINE1}
@@ -259,7 +260,7 @@ const AreaTableAction = ({ orderDetails }) => {
         }
       />
       <input
-      className="p-2 w-full mb-5 border-2  outline-none"
+      className="p-2 text-black w-full mb-5 border-2  outline-none"
         type="text"
         placeholder="CITY"
         value={EditOrderDetails.CITY}
@@ -268,7 +269,7 @@ const AreaTableAction = ({ orderDetails }) => {
         }
       />
       <input
-      className="p-2 w-full mb-5 border-2  outline-none"
+      className="p-2 text-black w-full mb-5 border-2  outline-none"
         type="text"
         placeholder="STATE"
         value={EditOrderDetails.STATE}
@@ -277,7 +278,7 @@ const AreaTableAction = ({ orderDetails }) => {
         }
       />
       <input
-      className="p-2 w-full mb-5 border-2  outline-none"
+      className="p-2 text-black w-full mb-5 border-2  outline-none"
         type="number"
         placeholder="POSTALCODE"
         value={EditOrderDetails.POSTALCODE}
@@ -289,7 +290,7 @@ const AreaTableAction = ({ orderDetails }) => {
         }
       />
       <input
-      className="p-2 w-full mb-5 border-2  outline-none"
+      className="p-2 text-black w-full mb-5 border-2  outline-none"
         type="text"
         placeholder="COUNTRY"
         value={EditOrderDetails.COUNTRY}
@@ -298,7 +299,7 @@ const AreaTableAction = ({ orderDetails }) => {
         }
       />
       <input
-      className="p-2 w-full mb-5 border-2  outline-none"
+      className="p-2 text-black w-full mb-5 border-2  outline-none"
         type="text"
         placeholder="TERRITORY"
         value={EditOrderDetails.TERRITORY}

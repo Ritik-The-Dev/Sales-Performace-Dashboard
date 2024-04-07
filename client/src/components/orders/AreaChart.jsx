@@ -9,9 +9,10 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useRecoilValue } from "recoil";
-import { salesData } from "../../Recoil/Data";
+import { DarkMode, salesData } from "../../Recoil/Data";
 
 const AreaBarChart = () => {
+  const darkMode = useRecoilValue(DarkMode)
   const orders = useRecoilValue(salesData);
   const [ordersData, setOrdersData] = useState([]);
 
@@ -61,7 +62,7 @@ const AreaBarChart = () => {
   }, [orders]);
 
   return (
-    <div className="bg-white p-6 rounded-md shadow-light-shadow1">
+    <div className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} p-6 rounded-md shadow-light-shadow1`}>
       <div className="bar-chart-info mb-8">
         <h5 className="text-xl font-bold text-text-color-inverted mb-4">
           Total Orders
@@ -91,6 +92,7 @@ const AreaBarChart = () => {
               tickSize={0}
               axisLine={false}
               tick={{
+                color:'white',
                 fill: "#000000",
                 fontSize: 14,
               }}

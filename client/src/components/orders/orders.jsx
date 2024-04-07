@@ -5,7 +5,7 @@ import {
   PieChartComponent,
 } from "../dashboard/areaCharts/AreaProgressChart";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { salesData } from "../../Recoil/Data";
+import { DarkMode, salesData } from "../../Recoil/Data";
 import AreaBarChart from "./AreaChart";
 import { Tables } from "../dashboard/areaTable/AreaTable";
 import { MdOutlineAdd } from "react-icons/md";
@@ -16,6 +16,7 @@ import { getSalesData } from "../../layout/BaseLayout";
 
 function Orders() {
   const [orders, setSalesData] = useRecoilState(salesData);
+  const darkMode = useRecoilValue(DarkMode)
   const token = useState(localStorage.getItem("token"));
   const [showNewOrder, setShowNewOrder] = useState(false);
   const [color, setColors] = useState([]);
@@ -127,7 +128,7 @@ function Orders() {
       {showNewOrder && (
         <div className="fixed inset-0 flex flex-col items-center justify-center z-30 bg-gray-400 bg-opacity-50">
           <form
-            className="bg-white lg:min-w-[40vw] lg:max-h-[80vh] md:max-h-[80vh] max-h-full overflow-y-auto md:min-w-[50vw] min-w-full flex flex-col p-8 rounded-lg shadow-lg"
+            className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} lg:min-w-[40vw] lg:max-h-[80vh] md:max-h-[80vh] max-h-full overflow-y-auto md:min-w-[50vw] min-w-full flex flex-col p-8 rounded-lg shadow-lg`}
             style={{
               scrollbarColor: "transparent transparent",
               scrollbarWidth: "thin",
@@ -375,7 +376,7 @@ function Orders() {
       )}
       {/* Orders Pie Chart*/}
       <div className="flex lg:flex-row md:flex-col flex-col items-center justify-center w-full p-2">
-        <div className="bg-white lg:w-full md:w-full w-[100vw] lg:mr-10 mr-0">
+        <div className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} lg:mr-5 w-full`}>
           <h1 className="text-center mt-5 text-2xl">Order Statistics</h1>
           {repeatOrder.length > 0 && (
             <PieChartComponent
@@ -386,7 +387,7 @@ function Orders() {
           )}
         </div>
         {/* Orders bar Chart */}
-        <div className="bg-white w-full mt-5 mb-2">
+        <div className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} w-full mt-5 mb-2`}>
           <AreaBarChart />
         </div>
       </div>

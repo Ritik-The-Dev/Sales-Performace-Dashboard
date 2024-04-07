@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
+import { useRecoilValue } from "recoil";
+import { DarkMode } from "../../../Recoil/Data";
 
 const AreaCard = ({ blankSpace, name, colors, percentFillValue, cardInfo }) => {
   const filledValue = (percentFillValue / 100) * 360; // 360 degress for a full circle
   const remainedValue = 360 - filledValue;
+  const darkMode = useRecoilValue(DarkMode)
 
   const data = [
     { name: blankSpace, value: remainedValue },
@@ -16,7 +19,7 @@ const AreaCard = ({ blankSpace, name, colors, percentFillValue, cardInfo }) => {
 
   return (
     <div className="grid">
-      <div className="w-full area-card bg-white flex items-center rounded-lg p-4 justify-between shadow-light-shadow1">
+      <div className={`w-full area-card ${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} flex items-center rounded-lg p-4 justify-between shadow-light-shadow1 `}>
         <div className="area-card-info w-full mr-20">
           <h5 className="info-title text-lg font-bold text-lg-text-color mb-2">
             {cardInfo.title}

@@ -4,7 +4,6 @@
   top: 0;
   width: 260px;
   height: 100%;
-  background-color: white;
   padding: 20px 14px;
   box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
   flex-direction: column;
@@ -48,7 +47,6 @@
   .sidebar-brand-text{
     text-transform: uppercase;
     font-weight: 900;
-    color: var(--logo-color);
   }
 
   .sidebar-close-btn{
@@ -59,7 +57,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--toggle-btn-icon-color);
     border-radius: 2px;
     transition: var(--default-transition);
     display: none;
@@ -86,7 +83,6 @@
     column-gap: 11px;
     padding: 12px;
     border-radius: 12px;
-    color: var(--side-text-color);
     transition: var(--default-transition);
 
     &:hover{
@@ -95,7 +91,6 @@
 
     &.active{
         background-color: var(--primary-color);
-        color: var(--light-color);
         box-shadow: 0px 0px 4px rgba(71, 91, 232, 0.04);
     }
   }

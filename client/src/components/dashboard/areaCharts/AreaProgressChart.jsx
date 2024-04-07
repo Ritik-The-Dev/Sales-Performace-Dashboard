@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { Colors, Products, salesData } from "../../../Recoil/Data";
+import { Colors, DarkMode, Products, salesData } from "../../../Recoil/Data";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { useEffect, useState } from "react";
 
@@ -7,6 +7,7 @@ const AreaProgressChart = () => {
   const orders = useRecoilValue(salesData);
   const [products, setProducts] = useRecoilState(Products)
   const [colors, setColors] = useRecoilState(Colors)
+  const darkMode = useRecoilValue(DarkMode)
 
   useEffect(() => {
     const renderProducts = () => {
@@ -47,7 +48,7 @@ const AreaProgressChart = () => {
   }, [orders]);
 
   return (
-    <div className="bg-white p-4 rounded-md shadow-light-shadow1 clear-start text-center">
+    <div className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} p-4 rounded-md shadow-light-shadow1 clear-start text-center`}>
       <h1 className="text-2xl font-bold mt-5 p-2">Most Sold Items</h1>
       <PieChartComponent outerRadius={150} colors={colors} products={products}/>
     </div>

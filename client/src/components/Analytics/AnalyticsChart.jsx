@@ -8,11 +8,12 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useRecoilValue } from "recoil";
-import { salesData, Traffic } from "../../Recoil/Data";
+import { DarkMode, salesData, Traffic } from "../../Recoil/Data";
 
 
 const AnalyticsChart = () => {
   const traffic = useRecoilValue(Traffic)
+  const darkMode = useRecoilValue(DarkMode)
   const [ordersData, setOrdersData] = useState([]);
 
   const formatTooltipValue = (value) => {
@@ -38,7 +39,7 @@ const AnalyticsChart = () => {
   }, [traffic]);
 
   return (
-    <div className="bg-white p-6 rounded-md shadow-light-shadow1 relative">
+    <div className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} p-6 rounded-md shadow-light-shadow1 relative`}>
       <div className="bar-chart-info mb-8">
         <h5 className="text-xl font-bold text-text-color-inverted mb-4">
           Top Countries

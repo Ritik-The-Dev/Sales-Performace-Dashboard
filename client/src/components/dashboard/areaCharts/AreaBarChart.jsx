@@ -1,13 +1,14 @@
 import { FaArrowUpLong } from "react-icons/fa6";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { Products, Total } from "../../../Recoil/Data";
+import { DarkMode, Products, Total } from "../../../Recoil/Data";
 import { useEffect} from "react";
 
 
 const AreaBarChart = () => {
   const products = useRecoilValue(Products);
   const [total, setTotal] = useRecoilState(Total);
-  
+  const darkMode = useRecoilValue(DarkMode)
+
   useEffect(() => {
     const totalRevenue = products.reduce((acc, product) => {
       return acc + product.sales;
@@ -16,7 +17,7 @@ const AreaBarChart = () => {
   }, [products]);
   
   return (
-    <div className="bg-white p-6 rounded-md shadow-light-shadow1">
+    <div className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} p-6 rounded-md shadow-light-shadow1`}>
       <div className="bar-chart-info mb-8">
         <h5 className="text-xl font-bold text-text-color-inverted mb-4">Total Revenue</h5>
         <div className="chart-info-data flex items-center gap-3">

@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "../components";
 import { useEffect, useState } from "react";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import axios from "axios";
-import { salesData } from "../Recoil/Data";
+import { DarkMode, salesData } from "../Recoil/Data";
 import ClipLoader from "react-spinners/ClipLoader";
 import { GetSalesData } from "../assets/Api/Api";
 
@@ -15,6 +15,7 @@ const override = {
 
 const BaseLayout = () => {
   const [Loading, setLoading] = useState(false);
+  const darkMode = useRecoilValue(DarkMode)
   let [color, setColor] = useState("#ffffff");
   const setSalesData = useSetRecoilState(salesData);
 
@@ -34,9 +35,9 @@ const BaseLayout = () => {
   }, []);
 
   return (
-    <main className="bg-[#fafafa] min-h-[100vh] overflow-hidden">
+    <main className={`${darkMode ? 'bg-slate-800 text-white':'bg-[#fafafa] text-black'} min-h-[100vh] overflow-hidden`}>
       <Sidebar />
-      <div className="bg-[#fafafa] min-h-[100vh] lg:p-14 md:p-10 p-5  lg:ml-64 ml-0 md:ml-10">
+      <div className={`${darkMode ? 'bg-slate-800 text-white':'bg-[#fafafa] text-black'} min-h-[100vh] lg:p-14 md:p-10 p-5  lg:ml-64 ml-0 md:ml-10`}>
         {Loading ? (
           <div className="sweet-loading flex items-center justify-center flex-col h-[80vh]">
             <ClipLoader

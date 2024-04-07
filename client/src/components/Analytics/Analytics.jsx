@@ -5,7 +5,7 @@ import {
   PieChartComponent,
 } from "../dashboard/areaCharts/AreaProgressChart";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { salesData, Traffic } from "../../Recoil/Data";
+import { DarkMode, salesData, Traffic } from "../../Recoil/Data";
 import AnalyticsChart from "./AnalyticsChart";
 import CustomerTables from "./CustomerTable";
 
@@ -13,6 +13,7 @@ function Analytics() {
   const orders = useRecoilValue(salesData);
   const [traffic, setTraffic] = useRecoilState(Traffic);
   const [color, setColors] = useState([]);
+  const darkMode = useRecoilValue(DarkMode)
 
   const customerLocation = () => {
     // Count the number of customers in each location
@@ -50,7 +51,7 @@ function Analytics() {
       <AreaTop Heading={"Analytics"} />
       {/* Traffic Pie Chart*/}
       <div className="lg:flex-row md:flex-col flex-col flex  items-center justify-center w-full p-2">
-        <div className="bg-white lg:w-full md:w-full w-[100vw] lg:mr-10 mr-0">
+        <div className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} lg:mr-5 w-full`}>
           <h1 className="text-center mt-5 text-2xl">Traffic Statistics</h1>
           {traffic.length > 0 && (
             <PieChartComponent
@@ -61,7 +62,7 @@ function Analytics() {
           )}
         </div>
         {/* Traffic bar Chart */}
-        <div className="bg-white lg:w-full md:w-full w-[100vw] mt-5">
+        <div className={`${darkMode ? 'bg-slate-700 text-white':'bg-white text-black'} w-full mt-5`}>
           <AnalyticsChart />
         </div>
       </div>

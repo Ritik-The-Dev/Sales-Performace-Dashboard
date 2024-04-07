@@ -4,6 +4,10 @@ export const salesData = atom({
   key: "salesData",
   default: [],
 });
+export const DarkMode = atom({
+  key: "DarkMode",
+  default: true,
+});
 export const Products = atom({
   key: "Products",
   default: [],
