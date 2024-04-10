@@ -3,7 +3,10 @@ const AuthModal = require("../Schema/authData");
 
 exports.Auth = async (req, res) => {
   try {
-    const { email, userName, userId, imgUrl } = req.body;
+    let { email, userName, userId, imgUrl } = req.body;
+    if(!userName){
+      userName = email
+    }
     if (!email || !userName || !userId || !imgUrl) {
       return res.status(400).json({ error: "All fields are necessary" });
     }
